@@ -1,5 +1,6 @@
 clean:
 	@find $(TARGET_DIR) -name "*.o" -delete
+	$(call note,$(TARGET_DIR) Objects were deleted.)
 _cdir:
 	@mkdir -p $(LIB_OBJ_DIR)
-	@echo "$(LIB_OBJ_DIR) created."
+	$(call note,Directory $(LIB_OBJ_DIR) was created.)
