@@ -18,7 +18,7 @@ ANSI_BACKGROUND_WHITE=\033[47m
 ANSI_BOLD=\033[1m
 
 ANSI_RESET=\033[0m
-define error
+define err
 	@echo -e "$(ANSI_BACKGROUND_RED)$(ANSI_FOREGROUND_WHITE)$(1)$(ANSI_RESET)"
 endef
 
