@@ -18,18 +18,18 @@ ANSI_BACKGROUND_WHITE=\033[47m
 ANSI_BOLD=\033[1m
 
 ANSI_RESET=\033[0m
-define err
-	@echo -e "$(ANSI_BACKGROUND_RED)$(ANSI_FOREGROUND_WHITE)$(1)$(ANSI_RESET)"
+define log_error
+	@echo -e "$(ANSI_BACKGROUND_BLACK)$(ANSI_FOREGROUND_RED)$(ANSI_BOLD)$(1)$(ANSI_RESET)"
 endef
 
-define success
+define log_success
 	@echo -e "$(ANSI_BACKGROUND_GREEN)$(ANSI_FOREGROUND_BLACK)$(ANSI_BOLD)$(1)$(ANSI_RESET)"
 endef
 
-define note
+define log_note
 	@echo -e "$(ANSI_BACKGROUND_YELLOW)$(ANSI_FOREGROUND_BLACK)$(ANSI_BOLD)$(1)$(ANSI_RESET)"
 endef
 
-define job
+define log_job
 	@echo -e "$(ANSI_BACKGROUND_BLUE)$(ANSI_FOREGROUND_WHITE)$(ANSI_BOLD)$(1)$(ANSI_RESET)"
 endef

@@ -1,17 +1,13 @@
+TIME:=$(shell date -u +"%s")
 include mk/log.mk
 dev:
-	$(call job,Compiling for dev...)
-	@BUILD_DIR=$(DEV_DIR) CXX_FLAGS="$(CXX_FLAGS) $(DEV_FLAGS)" $(MAKE) -s _cdir $(TARGET)
-
+	$(call build_type,DEV,$(DEV_DIR),$(DEV_FLAGS))	
 all: dev debug release
-
 debug:
-	$(call job,Compiling for debug...)
-	@BUILD_DIR=$(DBG_DIR) CXX_FLAGS="$(CXX_FLAGS) $(DBG_FLAGS)" $(MAKE) -s _cdir $(TARGET)
-
+	$(call build_type,DBG,$(DBG_DIR),$(DBG_FLAGS))
 release:
-	$(call job,Compiling for release...)
-	@BUILD_DIR=$(REL_DIR) CXX_FLAGS="$(CXX_FLAGS) $(REL_FLAGS)" $(MAKE) -s _cdir $(TARGET)
+	$(call build_type,RELEASE,$(REL_DIR),$(REL_FLAGS))
+
 include mk/config.mk
 include mk/utils.mk
 include mk/rules.mk
