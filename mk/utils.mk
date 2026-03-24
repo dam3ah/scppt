@@ -10,7 +10,8 @@ define build_type
 	$(call log_job,Compiling for $(1)...)
 	export BUILD_DIR=$(2)
 	export CXX_FLAGS="$(CXX_FLAGS) $(3)"
-	$(MAKE) -s -S _cdir $(TARGET) 2>$$BUILD_DIR/$(TIME).error.log
+	$(MAKE) -s -S _cdir
+	$(MAKE) -s -S $(TARGET) 2>$$BUILD_DIR/$(TIME).error.log
 	if [ -s $$BUILD_DIR/$(TIME).error.log ]; then
 		ERROR=$$(cat $$BUILD_DIR/$(TIME).error.log)
 		$(call log_error,$$ERROR)
